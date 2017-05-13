@@ -39,4 +39,16 @@
     <string name="eng_8">Eight</string>
     <string name="eng_9">Nine</string>
     <string name="eng_10">Ten</string>
+
+    <!--Create List of Numbers in english-->
+    <string name="miwok_1">lutti</string>
+    <string name="miwok_2">otiiko</string>
+    <string name="miwok_3">tolookosu</string>
+    <string name="miwok_4">oyyisa</string>
+    <string name="miwok_5">massokka</string>
+    <string name="miwok_6">temmokka</string>
+    <string name="miwok_7">kenekaku</string>
+    <string name="miwok_8">kawinta</string>
+    <string name="miwok_9">wo’e</string>
+    <string name="miwok_10">na’aacha</string>
 </resources>
