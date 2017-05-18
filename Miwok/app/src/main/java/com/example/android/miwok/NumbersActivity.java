@@ -17,16 +17,16 @@ public class NumbersActivity extends AppCompatActivity {
         //TODO: Add Words here
 //        Creating ArrayList of Strings
         ArrayList<Word> words = new ArrayList<Word>();
-        words.add(new Word(getResources().getString(R.string.eng_1), getResources().getString(R.string.miwok_1)));
-        words.add(new Word(getResources().getString(R.string.eng_2), getResources().getString(R.string.miwok_2)));
-        words.add(new Word(getResources().getString(R.string.eng_3), getResources().getString(R.string.miwok_3)));
-        words.add(new Word(getResources().getString(R.string.eng_4), getResources().getString(R.string.miwok_4)));
-        words.add(new Word(getResources().getString(R.string.eng_5), getResources().getString(R.string.miwok_5)));
-        words.add(new Word(getResources().getString(R.string.eng_6), getResources().getString(R.string.miwok_6)));
-        words.add(new Word(getResources().getString(R.string.eng_7), getResources().getString(R.string.miwok_7)));
-        words.add(new Word(getResources().getString(R.string.eng_8), getResources().getString(R.string.miwok_8)));
-        words.add(new Word(getResources().getString(R.string.eng_9), getResources().getString(R.string.miwok_9)));
-        words.add(new Word(getResources().getString(R.string.eng_10), getResources().getString(R.string.miwok_10)));
+        words.add(new Word(getResources().getString(R.string.eng_1), getResources().getString(R.string.miwok_1), R.drawable.number_one));
+        words.add(new Word(getResources().getString(R.string.eng_2), getResources().getString(R.string.miwok_2), R.drawable.number_two ));
+        words.add(new Word(getResources().getString(R.string.eng_3), getResources().getString(R.string.miwok_3), R.drawable.number_three));
+        words.add(new Word(getResources().getString(R.string.eng_4), getResources().getString(R.string.miwok_4), R.drawable.number_four));
+        words.add(new Word(getResources().getString(R.string.eng_5), getResources().getString(R.string.miwok_5), R.drawable.number_five));
+        words.add(new Word(getResources().getString(R.string.eng_6), getResources().getString(R.string.miwok_6), R.drawable.number_six));
+        words.add(new Word(getResources().getString(R.string.eng_7), getResources().getString(R.string.miwok_7), R.drawable.number_seven));
+        words.add(new Word(getResources().getString(R.string.eng_8), getResources().getString(R.string.miwok_8), R.drawable.number_eight));
+        words.add(new Word(getResources().getString(R.string.eng_9), getResources().getString(R.string.miwok_9), R.drawable.number_nine));
+        words.add(new Word(getResources().getString(R.string.eng_10), getResources().getString(R.string.miwok_10), R.drawable.number_ten));
 
 //        The Adapter shows how to create list of Items in every View
         WordAdapter adapter = new WordAdapter(this, words);
