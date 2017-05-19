@@ -11,7 +11,10 @@ public class Word {
     /*Word in the Miwauke langauge*/
     private String mMiowokTranslation;
     /*Image ressource ID for the Word Object*/
-    private int mImageResourceID;
+    private int mImageResourceID = NO_IMAGE_PROVIDED;
+
+    private static final int NO_IMAGE_PROVIDED = -1;
+
     /*Creating a new Word Object with the Constructor*/
     public Word(String defaultTranslation, String miwokTranslation){
         mDefaultTranslation = defaultTranslation;
@@ -38,5 +41,12 @@ public class Word {
     /*Getter method to return the Image ID of the Word*/
     public int getImageResourceID(){
         return mImageResourceID;
+    }
+
+    /**
+     * returns if the current word object has an image or not
+     * */
+    public boolean hasImage(){
+        return mImageResourceID != NO_IMAGE_PROVIDED;
     }
 }

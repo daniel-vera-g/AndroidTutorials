@@ -12,11 +12,13 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import static android.os.Build.VERSION_CODES.M;
+
 /**
  * Created by DanielVG on 13.05.17.
  */
 
-public  class WordAdapter extends ArrayAdapter<Word> {
+public class WordAdapter extends ArrayAdapter<Word> {
 
     public WordAdapter(Activity context, ArrayList<Word> words) {
         // Here, we initialize the ArrayAdapter's internal storage for the context and the list.
@@ -31,7 +33,7 @@ public  class WordAdapter extends ArrayAdapter<Word> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         // Check if the existing view is being reused, otherwise inflate the view
         View listItemView = convertView;
-        if(listItemView == null) {
+        if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.list_item, parent, false);
         }
@@ -51,8 +53,23 @@ public  class WordAdapter extends ArrayAdapter<Word> {
         // set this text on the number TextView
         defaultTextView.setText(currentWord.getmDefaultTranslation());
 
+        // Find the ImageView in the list_item.xml layout with the ID list_item_icon
+        ImageView imageView = (ImageView) listItemView.findViewById(R.id.image);
+        //
+        if (currentWord.hasImage()) {
+            // Get the image resource ID from the current AndroidFlavor object and
+            // set the image to iconView
+            imageView.setImageResource(currentWord.getImageResourceID());
+            // The image view is vissible
+            imageView.setVisibility(View.VISIBLE);
+        } else {
+            //otherwise the image view is hidden
+            imageView.setVisibility(View.GONE);
+        }
+
         // Return the whole list item layout (containing 2 TextViews and an ImageView)
         // so that it can be shown in the ListView
+
         return listItemView;
     }
 
