@@ -27,7 +27,7 @@ public class ColorsActivity extends AppCompatActivity {
         words.add(new Word("mustard yellow", "chiwiiṭә", R.drawable.color_mustard_yellow));
 
 //        The Adapter shows how to create list of Items in every View
-        WordAdapter adapter = new WordAdapter(this, words);
+        WordAdapter adapter = new WordAdapter(this, words, R.color.primary_color);
 
         // Find the {@link ListView} object in the view hierarchy of the {@link Activity}.
         // There should be a {@link ListView} with the view ID called list, which is declared in the

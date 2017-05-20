@@ -25,7 +25,7 @@ public class FamilyActivity extends AppCompatActivity {
         words.add(new Word("younger sister", "kolliti", R.drawable.family_younger_sister));
 
 //        The Adapter shows how to create list of Items in every View
-        WordAdapter adapter = new WordAdapter(this, words);
+        WordAdapter adapter = new WordAdapter(this, words, R.color.category_family);
 
         // Find the {@link ListView} object in the view hierarchy of the {@link Activity}.
         // There should be a {@link ListView} with the view ID called list, which is declared in the

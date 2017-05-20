@@ -29,7 +29,7 @@ public class NumbersActivity extends AppCompatActivity {
         words.add(new Word(getResources().getString(R.string.eng_10), getResources().getString(R.string.miwok_10), R.drawable.number_ten));
 
 //        The Adapter shows how to create list of Items in every View
-        WordAdapter adapter = new WordAdapter(this, words);
+        WordAdapter adapter = new WordAdapter(this, words, R.color.category_numbers);
 
         // Find the {@link ListView} object in the view hierarchy of the {@link Activity}.
         // There should be a {@link ListView} with the view ID called list, which is declared in the
