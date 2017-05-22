@@ -14,12 +14,14 @@ import static java.security.AccessController.getContext;
 
 public class MainActivity extends AppCompatActivity {
 
+    private MediaPlayer musicPlayer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final MediaPlayer musicPlayer = MediaPlayer.create(this, R.raw.sky_sand);
+        musicPlayer = MediaPlayer.create(this, R.raw.sky_sand);
 //        Creating the two new Button Objects for the OnClick Listeners
         final Button playButton = (Button) findViewById(R.id.playButton);
         playButton.setOnClickListener(new View.OnClickListener() {
@@ -35,23 +37,23 @@ public class MainActivity extends AppCompatActivity {
                 musicPlayer.pause();
             }
         });
-        final Button increaseVolume = (Button) findViewById(R.id.volumeButton);
-        increaseVolume.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                musicPlayer.setVolume(0.2f,0.2f);
-            }
-        });
-
-        Button skipToMiddle = (Button) findViewById(R.id.skipToMiddle);
-        skipToMiddle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int duration = musicPlayer.getDuration();
-                 duration = duration/1000;
-                musicPlayer.seekTo(duration);
-            }
-        });
 
 };
 }
+//        final Button increaseVolume = (Button) findViewById(R.id.volumeButton);
+//        increaseVolume.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                musicPlayer.setVolume(0.2f,0.2f);
+//            }
+//        });
+//
+//        Button skipToMiddle = (Button) findViewById(R.id.skipToMiddle);
+//        skipToMiddle.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                int duration = musicPlayer.getDuration();
+//                 duration = duration/1000;
+//                musicPlayer.seekTo(duration);
+//            }
+//        });
