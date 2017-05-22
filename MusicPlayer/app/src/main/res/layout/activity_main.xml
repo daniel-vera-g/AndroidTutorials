@@ -10,7 +10,6 @@
         android:id="@+id/playButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="playMusic"
         android:text="Play" />
 
     <Button
@@ -18,8 +17,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/playButton"
-        android:onClick="pauseMusic"
         android:text="pause"/>
+
+    <Button
+        android:id="@+id/volumeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pauseButton"
+        android:text="Vlume "/>
+
+    <Button
+        android:id="@+id/skipToMiddle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/volumeButton"
+        android:text="Skip to the Middle"/>
 
 </RelativeLayout>
 
