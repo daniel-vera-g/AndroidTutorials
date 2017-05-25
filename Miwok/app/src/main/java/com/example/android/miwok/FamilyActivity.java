@@ -11,13 +11,17 @@ import java.util.ArrayList;
 
 public class FamilyActivity extends AppCompatActivity {
 
+        //Create Media Player file
+        private MediaPlayer mplaySpelling;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
+
         //TODO: Add Words here
 //        Creating ArrayList of Strings
-        ArrayList<Word> words = new ArrayList<Word>();
+        final ArrayList<Word> words = new ArrayList<Word>();
         words.add(new Word("father", "әpә", R.drawable.family_father, R.raw.family_father));
         words.add(new Word("mother", "әṭa", R.drawable.family_mother, R.raw.family_mother));
         words.add(new Word("son", "angsi", R.drawable.family_son, R.raw.family_son));
@@ -42,11 +46,16 @@ public class FamilyActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
 
         //Set the oncLick Listener to play the Song
-        listView.setOnClickListener(new AdapterView.OnItemClickListener(){
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-//                get Word Object at the current position
-                Word word
+//                Get the actual word Object
+                Word word = words.get(position);
+
+                //Creating a Media Object to play the song
+                mplaySpelling = MediaPlayer.create(FamilyActivity.this, word.getmSoundfileRessourceID());
+                //Play Spelling
+                mplaySpelling.start();
             }
         });
 

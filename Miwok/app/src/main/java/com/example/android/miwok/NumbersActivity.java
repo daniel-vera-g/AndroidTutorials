@@ -16,7 +16,7 @@ public class NumbersActivity extends AppCompatActivity {
         setContentView(R.layout.word_list);
         //TODO: Add Words here
 //        Creating ArrayList of Strings
-        ArrayList<Word> words = new ArrayList<Word>();
+        final ArrayList<Word> words = new ArrayList<Word>();
         words.add(new Word(getResources().getString(R.string.eng_1), getResources().getString(R.string.miwok_1), R.drawable.number_one, R.raw.number_one));
         words.add(new Word(getResources().getString(R.string.eng_2), getResources().getString(R.string.miwok_2), R.drawable.number_two, R.raw.number_two ));
         words.add(new Word(getResources().getString(R.string.eng_3), getResources().getString(R.string.miwok_3), R.drawable.number_three, R.raw.number_three));

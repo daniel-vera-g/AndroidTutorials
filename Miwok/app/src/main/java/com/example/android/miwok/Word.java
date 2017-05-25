@@ -20,17 +20,12 @@ public class Word {
 
     private static final int NO_IMAGE_PROVIDED = -1;
 
-    /*Creating a new Word Object with the Constructor*/
-    public Word(String defaultTranslation, String miwokTranslation) {
-        mDefaultTranslation = defaultTranslation;
-        mMiowokTranslation = miwokTranslation;
-    }
 
     /*Creating a new Word Object with the Constructor and an additional image*/
-    public Word(String defaultTranslation, String miwokTranslation, int imageRessourceID) {
+    public Word(String defaultTranslation, String miwokTranslation, int soundRessourceID) {
         mDefaultTranslation = defaultTranslation;
         mMiowokTranslation = miwokTranslation;
-        mImageResourceID = imageRessourceID;
+        mSoundfileRessourceID = soundRessourceID;
     }
 
     /*Creating a new Word Object with the Constructor and an additional SoundFile*/
