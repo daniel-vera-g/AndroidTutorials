@@ -63,4 +63,14 @@ public class Word {
     public int getmSoundfileRessourceID() {
         return mSoundfileRessourceID;
     }
+
+    @Override
+    public String toString() {
+        return "Word{" +
+                "mDefaultTranslation='" + mDefaultTranslation + '\'' +
+                ", mMiowokTranslation='" + mMiowokTranslation + '\'' +
+                ", mSoundfileRessourceID=" + mSoundfileRessourceID +
+                ", mImageResourceID=" + mImageResourceID +
+                '}';
+    }
 }
