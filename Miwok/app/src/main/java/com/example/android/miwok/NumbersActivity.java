@@ -24,12 +24,12 @@ public class NumbersActivity extends AppCompatActivity {
 //        Creating ArrayList of Strings
         final ArrayList<Word> words = new ArrayList<Word>();
         words.add(new Word(getResources().getString(R.string.eng_1), getResources().getString(R.string.miwok_1), R.drawable.number_one, R.raw.number_one));
-        words.add(new Word(getResources().getString(R.string.eng_2), getResources().getString(R.string.miwok_2), R.drawable.number_two, R.raw.number_two ));
+        words.add(new Word(getResources().getString(R.string.eng_2), getResources().getString(R.string.miwok_2), R.drawable.number_two, R.raw.number_two));
         words.add(new Word(getResources().getString(R.string.eng_3), getResources().getString(R.string.miwok_3), R.drawable.number_three, R.raw.number_three));
         words.add(new Word(getResources().getString(R.string.eng_4), getResources().getString(R.string.miwok_4), R.drawable.number_four, R.raw.number_four));
         words.add(new Word(getResources().getString(R.string.eng_5), getResources().getString(R.string.miwok_5), R.drawable.number_five, R.raw.number_five));
         words.add(new Word(getResources().getString(R.string.eng_6), getResources().getString(R.string.miwok_6), R.drawable.number_six, R.raw.number_six));
-        words.add(new Word(getResources().getString(R.string.eng_7), getResources().getString(R.string.miwok_7), R.drawable.number_seven,R.raw.number_seven));
+        words.add(new Word(getResources().getString(R.string.eng_7), getResources().getString(R.string.miwok_7), R.drawable.number_seven, R.raw.number_seven));
         words.add(new Word(getResources().getString(R.string.eng_8), getResources().getString(R.string.miwok_8), R.drawable.number_eight, R.raw.number_eight));
         words.add(new Word(getResources().getString(R.string.eng_9), getResources().getString(R.string.miwok_9), R.drawable.number_nine, R.raw.number_nine));
         words.add(new Word(getResources().getString(R.string.eng_10), getResources().getString(R.string.miwok_10), R.drawable.number_ten, R.raw.number_ten));
@@ -51,6 +51,9 @@ public class NumbersActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+
+                releaseMediaPlayer();
+
                 Word word = words.get(position);
 
                 Log.v("NumberActivity", "Word Objct: " + word);
@@ -58,7 +61,31 @@ public class NumbersActivity extends AppCompatActivity {
                 mMediaPlayer = MediaPlayer.create(NumbersActivity.this, word.getmSoundfileRessourceID());
 
                 mMediaPlayer.start();
+
+                mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mediaPlayer) {
+                        releaseMediaPlayer();
+                    }
+                });
             }
         });
+    }
+
+    /**
+     * Clean up the media player by releasing its resources.
+     */
+    private void releaseMediaPlayer() {
+        // If the media player is not null, then it may be currently playing a sound.
+        if (mMediaPlayer != null) {
+            // Regardless of the current state of the media player, release its resources
+            // because we no longer need it.
+            mMediaPlayer.release();
+
+            // Set the media player back to null. For our code, we've decided that
+            // setting the media player to null is an easy way to tell that the media player
+            // is not configured to play an audio file at the moment.
+            mMediaPlayer = null;
+        }
     }
 }
