@@ -72,6 +72,13 @@ public class NumbersActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        // If the media Player is stopped, stopp the media Player from playing to free up space
+        releaseMediaPlayer();
+    }
+
     /**
      * Clean up the media player by releasing its resources.
      */
