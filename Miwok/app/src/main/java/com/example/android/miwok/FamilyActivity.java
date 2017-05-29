@@ -1,8 +1,11 @@
 package com.example.android.miwok;
 
+import android.content.Context;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -14,12 +17,47 @@ public class FamilyActivity extends AppCompatActivity {
         //Create Media Player file
         private MediaPlayer mMediaPlayer;
 
+    /*Creating an instance of the Audiomanger Object to control AudioFocus*/
+    private AudioManager mAudioManager;
+
+    AudioManager.OnAudioFocusChangeListener afChangeListener =
+            new AudioManager.OnAudioFocusChangeListener() {
+                public void onAudioFocusChange(int focusChange) {
+                    if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT || focusChange ==
+                            AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK) {
+                        // Pause playback because your Audio Focus was
+                        // temporarily stolen, but will be back soon.
+                        // i.e. for a phone call
+                        mMediaPlayer.pause();
+                        mMediaPlayer.seekTo(0);
+                    } else if (focusChange == AudioManager.AUDIOFOCUS_LOSS) {
+                        // Stop playback, because you lost the Audio Focus.
+                        // i.e. the user started some other playback app
+                        // Remember to unregister your controls/buttons here.
+                        // And release the kra — Audio Focus!
+                        // You’re done.
+                        mMediaPlayer.stop();
+                        mAudioManager.abandonAudioFocus(afChangeListener);
+                    } else if (focusChange == AudioManager.AUDIOFOCUS_GAIN) {
+                        // Resume playback, because you hold the Audio Focus
+                        // again!
+                        // i.e. the phone call ended or the nav directions
+                        // are finished
+                        // If you implement ducking and lower the volume, be
+                        // sure to return it to normal here, as well.
+                        mMediaPlayer.start();
+                    }
+                }
+            };
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
 
-        //TODO: Add Words here
+        mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+
 //        Creating ArrayList of Strings
         final ArrayList<Word> words = new ArrayList<Word>();
         words.add(new Word("father", "әpә", R.drawable.family_father, R.raw.family_father));
@@ -50,22 +88,32 @@ public class FamilyActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
 
-                releaseMediaPlayer();
+                // Request audio focus for playback
+                int result = mAudioManager.requestAudioFocus(afChangeListener,
+                        // Use the music stream.
+                        AudioManager.STREAM_MUSIC,
+                        // Request permanent focus.
+                        AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
 
-//                Get the actual word Object
-                Word word = words.get(position);
+                if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
+                    // Start playback
+                    releaseMediaPlayer();
 
-                //Creating a Media Object to play the song
-                mMediaPlayer = MediaPlayer.create(FamilyActivity.this, word.getmSoundfileRessourceID());
-                //Play Spelling
-                mMediaPlayer.start();
+                    Word word = words.get(position);
 
-                mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                    @Override
-                    public void onCompletion(MediaPlayer mediaPlayer) {
-                        releaseMediaPlayer();
-                    }
-                });
+                    Log.v("NumberActivity", "Word Objct: " + word);
+
+                    mMediaPlayer = MediaPlayer.create(FamilyActivity.this, word.getmSoundfileRessourceID());
+
+                    mMediaPlayer.start();
+
+                    mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mediaPlayer) {
+                            releaseMediaPlayer();
+                        }
+                    });
+                }
             }
         });
 
@@ -78,21 +126,24 @@ public class FamilyActivity extends AppCompatActivity {
         releaseMediaPlayer();
     }
 
-        /**
-         * Clean up the media player by releasing its resources.
-         */
-        private  void releaseMediaPlayer() {
-            // If the media player is not null, then it may be currently playing a sound.
-            if (mMediaPlayer != null) {
-                // Regardless of the current state of the media player, release its resources
-                // because we no longer need it.
-                mMediaPlayer.release();
+    /**
+     * Clean up the media player by releasing its resources.
+     */
+    private void releaseMediaPlayer() {
+        // If the media player is not null, then it may be currently playing a sound.
+        if (mMediaPlayer != null) {
+            // Regardless of the current state of the media player, release its resources
+            // because we no longer need it.
+            mMediaPlayer.release();
 
-                // Set the media player back to null. For our code, we've decided that
-                // setting the media player to null is an easy way to tell that the media player
-                // is not configured to play an audio file at the moment.
-                mMediaPlayer = null;
-            }
+            // Set the media player back to null. For our code, we've decided that
+            // setting the media player to null is an easy way to tell that the media player
+            // is not configured to play an audio file at the moment.
+            mMediaPlayer = null;
+
+            // Abandon audio focus when playback complete
+            mAudioManager.abandonAudioFocus(afChangeListener);
         }
+    }
 
 }
