@@ -17,6 +17,7 @@ package com.example.android.miwok;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -26,6 +27,7 @@ import android.widget.TextView;
 //import static com.example.android.miwok.R.id.numbers;
 
 public class MainActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,80 +40,20 @@ public class MainActivity extends AppCompatActivity {
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
 
         // Create an adapter that knows which fragment should be shown on each page
-        FragmentStatePageAdapter adapter = new FragmentStatePageAdapter(getSupportFragmentManager());
+        FragmentStatePageAdapter adapter = new FragmentStatePageAdapter(this, getSupportFragmentManager());
 
         // Set the adapter onto the view pager
         viewPager.setAdapter(adapter);
 
+        // Give the TabLayout the ViewPager
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
+        // Connect the tab layout with the view pager. This will
+        //   1. Update the tab layout when the view pager is swiped
+        //   2. Update the view pager when a tab is selected
+        //   3. Set the tab layout's tab names with the view pager's adapter's titles
+        //      by calling onPageTitle()
+        tabLayout.setupWithViewPager(viewPager);
 
-
-
-//        /*
-//        * Numbers
-//        * */
-//        // Find the View that shows the numbers category
-//        TextView numbers = (TextView) findViewById(R.id.numbers);
-//
-//        // Set a clrick listener on that View
-//        numbers.setOnClickListener(new View.OnClickListener() {
-//        // The code in this method will be executed when the numbers View is clicked on.
-//            @Override
-//            public void onClick(View view) {
-//                Intent numbersIntent = new Intent(MainActivity.this, NumbersActivity.class);
-//                startActivity(numbersIntent);
-//            }
-//        });
-//
-//
-//        /*
-//        Colors
-//        * */
-//        // Find the View that shows the Colors category
-//        TextView colors = (TextView) findViewById(R.id.colors);
-//
-//        // Set a click listener on that View
-//        colors.setOnClickListener(new View.OnClickListener() {
-//            // The code in this method will be executed when the numbers colors View is clicked on.
-//            @Override
-//            public void onClick(View view) {
-//                Intent colorsIntent = new Intent(MainActivity.this, ColorsActivity.class);
-//                startActivity(colorsIntent);
-//            }
-//        });
-//
-//
-//        /*
-//        * family
-//        * */
-//        // Find the View that shows the family category
-//        TextView family = (TextView) findViewById(R.id.family);
-//
-//        // Set a click listener on that View
-//        family.setOnClickListener(new View.OnClickListener() {
-//            // The code in this method will be executed when the numbers View is clicked on.
-//            @Override
-//            public void onClick(View view) {
-//                Intent familyIntent = new Intent(MainActivity.this, FamilyActivity.class);
-//                startActivity(familyIntent);
-//            }
-//        });
-//
-//
-//        /*
-//        * Phrases
-//        * */
-//        // Find the View that shows the phrases category
-//        TextView phrases= (TextView) findViewById(R.id.phrases);
-//
-//        // Set a click listener on that View
-//        phrases.setOnClickListener(new View.OnClickListener() {
-//            // The code in this method will be executed when the numbers View is clicked on.
-//            @Override
-//            public void onClick(View view) {
-//                Intent phrasesIntent = new Intent(MainActivity.this, PhrasesActivity.class);
-//                startActivity(phrasesIntent);
-//            }
-//        });
     }
 
 }

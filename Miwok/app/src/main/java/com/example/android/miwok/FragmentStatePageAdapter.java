@@ -11,8 +11,11 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 public class FragmentStatePageAdapter extends FragmentPagerAdapter {
 
-    public FragmentStatePageAdapter(FragmentManager fm) {
+    private Context mContext;
+
+    public FragmentStatePageAdapter(Context context, FragmentManager fm) {
         super(fm);
+        mContext = context;
     }
 
     @Override
@@ -34,11 +37,24 @@ public class FragmentStatePageAdapter extends FragmentPagerAdapter {
 
 
 }
-        /*public CharSequence getPageTitle(int position){
-            switch (position){
-                case 0:
-                    return
-            }
-        }*/
-
+    @Override
+    public CharSequence getPageTitle(int position) {
+     /*   // Generate title based on item position
+        return tabTitles[position];*/
+        String numbers = "Numbers";
+        String family = "Family";
+        String colors = "Colors";
+        String phrases = "Phrases";
+        if (position == 0) {
+            return mContext.getString(R.string.category_numbers);
+        } else if (position == 1){
+            return mContext.getString(R.string.category_family);
+        } else if(position == 2){
+            return mContext.getString(R.string.category_colors);
+        }else {
+            return mContext.getString(R.string.category_phrases);
+        }
+    }
 }
+
+
