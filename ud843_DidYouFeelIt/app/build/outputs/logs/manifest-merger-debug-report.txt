@@ -1,0 +1,63 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Volumes/Hard_Disk/Documents/Programming/AndroidStudioProjects/ud843_DidYouFeelIt/app/src/main/AndroidManifest.xml:16:1-35:12
+	package
+		ADDED from /Volumes/Hard_Disk/Documents/Programming/AndroidStudioProjects/ud843_DidYouFeelIt/app/src/main/AndroidManifest.xml:17:5-47
+		INJECTED from /Volumes/Hard_Disk/Documents/Programming/AndroidStudioProjects/ud843_DidYouFeelIt/app/src/main/AndroidManifest.xml
+		INJECTED from /Volumes/Hard_Disk/Documents/Programming/AndroidStudioProjects/ud843_DidYouFeelIt/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Volumes/Hard_Disk/Documents/Programming/AndroidStudioProjects/ud843_DidYouFeelIt/app/src/main/AndroidManifest.xml
+		INJECTED from /Volumes/Hard_Disk/Documents/Programming/AndroidStudioProjects/ud843_DidYouFeelIt/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Volumes/Hard_Disk/Documents/Programming/AndroidStudioProjects/ud843_DidYouFeelIt/app/src/main/AndroidManifest.xml:16:11-69
+	android:versionCode
+		INJECTED from /Volumes/Hard_Disk/Documents/Programming/AndroidStudioProjects/ud843_DidYouFeelIt/app/src/main/AndroidManifest.xml
+		INJECTED from /Volumes/Hard_Disk/Documents/Programming/AndroidStudioProjects/ud843_DidYouFeelIt/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from /Volumes/Hard_Disk/Documents/Programming/AndroidStudioProjects/ud843_DidYouFeelIt/app/src/main/AndroidManifest.xml:19:5-66
+	android:name
+		ADDED from /Volumes/Hard_Disk/Documents/Programming/AndroidStudioProjects/ud843_DidYouFeelIt/app/src/main/AndroidManifest.xml:19:22-64
+application
+ADDED from /Volumes/Hard_Disk/Documents/Programming/AndroidStudioProjects/ud843_DidYouFeelIt/app/src/main/AndroidManifest.xml:21:5-33:19
+MERGED from [com.android.support:appcompat-v7:23.4.0] /Users/danielvg/.android/build-cache/1aea6f04f8c7ebaf7dd6fdd3326aaafb1e479ead/output/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:23.4.0] /Users/danielvg/.android/build-cache/cf3569917d8344ef2294b52c1ca48db2750c7921/output/AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-vector-drawable:23.4.0] /Users/danielvg/.android/build-cache/ab89c8a220f7592bbf4cd6b60025d88cc44685b2/output/AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-v4:23.4.0] /Users/danielvg/.android/build-cache/cb7c4b2d9a2f9719efa4bb25bfa9b28af234c954/output/AndroidManifest.xml:22:5-20
+	android:label
+		ADDED from /Volumes/Hard_Disk/Documents/Programming/AndroidStudioProjects/ud843_DidYouFeelIt/app/src/main/AndroidManifest.xml:24:9-41
+	android:supportsRtl
+		ADDED from /Volumes/Hard_Disk/Documents/Programming/AndroidStudioProjects/ud843_DidYouFeelIt/app/src/main/AndroidManifest.xml:25:9-35
+	android:allowBackup
+		ADDED from /Volumes/Hard_Disk/Documents/Programming/AndroidStudioProjects/ud843_DidYouFeelIt/app/src/main/AndroidManifest.xml:22:9-35
+	android:icon
+		ADDED from /Volumes/Hard_Disk/Documents/Programming/AndroidStudioProjects/ud843_DidYouFeelIt/app/src/main/AndroidManifest.xml:23:9-43
+	android:theme
+		ADDED from /Volumes/Hard_Disk/Documents/Programming/AndroidStudioProjects/ud843_DidYouFeelIt/app/src/main/AndroidManifest.xml:26:9-40
+activity#com.example.android.didyoufeelit.MainActivity
+ADDED from /Volumes/Hard_Disk/Documents/Programming/AndroidStudioProjects/ud843_DidYouFeelIt/app/src/main/AndroidManifest.xml:27:9-32:20
+	android:name
+		ADDED from /Volumes/Hard_Disk/Documents/Programming/AndroidStudioProjects/ud843_DidYouFeelIt/app/src/main/AndroidManifest.xml:27:19-47
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /Volumes/Hard_Disk/Documents/Programming/AndroidStudioProjects/ud843_DidYouFeelIt/app/src/main/AndroidManifest.xml:28:13-31:29
+action#android.intent.action.MAIN
+ADDED from /Volumes/Hard_Disk/Documents/Programming/AndroidStudioProjects/ud843_DidYouFeelIt/app/src/main/AndroidManifest.xml:29:17-69
+	android:name
+		ADDED from /Volumes/Hard_Disk/Documents/Programming/AndroidStudioProjects/ud843_DidYouFeelIt/app/src/main/AndroidManifest.xml:29:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Volumes/Hard_Disk/Documents/Programming/AndroidStudioProjects/ud843_DidYouFeelIt/app/src/main/AndroidManifest.xml:30:17-77
+	android:name
+		ADDED from /Volumes/Hard_Disk/Documents/Programming/AndroidStudioProjects/ud843_DidYouFeelIt/app/src/main/AndroidManifest.xml:30:27-74
+uses-sdk
+INJECTED from /Volumes/Hard_Disk/Documents/Programming/AndroidStudioProjects/ud843_DidYouFeelIt/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:appcompat-v7:23.4.0] /Users/danielvg/.android/build-cache/1aea6f04f8c7ebaf7dd6fdd3326aaafb1e479ead/output/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:23.4.0] /Users/danielvg/.android/build-cache/cf3569917d8344ef2294b52c1ca48db2750c7921/output/AndroidManifest.xml:5:5-44
+MERGED from [com.android.support:support-vector-drawable:23.4.0] /Users/danielvg/.android/build-cache/ab89c8a220f7592bbf4cd6b60025d88cc44685b2/output/AndroidManifest.xml:5:5-43
+MERGED from [com.android.support:support-v4:23.4.0] /Users/danielvg/.android/build-cache/cb7c4b2d9a2f9719efa4bb25bfa9b28af234c954/output/AndroidManifest.xml:20:5-43
+	tools:overrideLibrary
+		ADDED from [com.android.support:appcompat-v7:23.4.0] /Users/danielvg/.android/build-cache/1aea6f04f8c7ebaf7dd6fdd3326aaafb1e479ead/output/AndroidManifest.xml:23:9-75
+	android:targetSdkVersion
+		INJECTED from /Volumes/Hard_Disk/Documents/Programming/AndroidStudioProjects/ud843_DidYouFeelIt/app/src/main/AndroidManifest.xml
+		INJECTED from /Volumes/Hard_Disk/Documents/Programming/AndroidStudioProjects/ud843_DidYouFeelIt/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Volumes/Hard_Disk/Documents/Programming/AndroidStudioProjects/ud843_DidYouFeelIt/app/src/main/AndroidManifest.xml
+		INJECTED from /Volumes/Hard_Disk/Documents/Programming/AndroidStudioProjects/ud843_DidYouFeelIt/app/src/main/AndroidManifest.xml
