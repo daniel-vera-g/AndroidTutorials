@@ -38,7 +38,7 @@ import java.nio.charset.Charset;
 public final class Utils {
 
     /** Tag for the log messages */
-    public static final String LOG_TAG = Utils.class.getSimpleName();
+     public static final String LOG_TAG = Utils.class.getSimpleName();
 
     /**
      * Query the USGS dataset and return an {@link Event} object to represent a single earthquake.
